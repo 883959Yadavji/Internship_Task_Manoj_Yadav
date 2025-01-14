@@ -1,0 +1,81 @@
+1. Find the Total Number of Orders for Each Customer
+SELECT 
+    c.First_name, 
+    c.Last_name, 
+    COUNT(o.order_id) AS total_orders
+FROM Orders o
+JOIN Customers c ON o.customer_id = c.Customer_id
+GROUP BY c.Customer_id;
+
+
+2. Find the Total Sales Amount for Each Product (Revenue per Product)
+SELECT 
+    p.product_name, 
+    SUM(od.Quantity * od.unit_price) AS total_revenue
+FROM OrderDetails od
+JOIN Products p ON od.Product_id = p.product_id
+GROUP BY p.product_name;
+
+3.Find the most Expensive item sold.
+SELECT 
+    p.product_name, 
+    MAX(od.unit_price) AS highest_price
+FROM OrderDetails od
+JOIN Products p ON od.Product_id = p.product_id
+GROUP BY p.product_name
+ORDER BY highest_price DESC
+LIMIT 1;
+
+
+
+4. Get the List of Customers Who Have Placed Orders in the Last 30 Days
+SELECT 
+    c.First_name, 
+    c.Last_name, 
+    c.Email, 
+    o.order_date
+FROM Orders o
+JOIN Customers c ON o.customer_id = c.Customer_id
+WHERE o.order_date >= CURDATE() - INTERVAL 30 DAY;
+
+
+5. Calculate the Total Amount Paid by Each Customer
+SELECT 
+    c.First_name, 
+    c.Last_name, 
+    SUM(p.Payment_amount) AS total_paid
+FROM Payments p
+JOIN Orders o ON p.Order_id = o.order_id
+JOIN Customers c ON o.customer_id = c.Customer_id
+GROUP BY c.Customer_id;
+
+
+
+
+6. Get the Number of Products Sold by Category
+SELECT 
+    p.category, 
+    SUM(od.Quantity) AS total_products_sold
+FROM OrderDetails od
+JOIN Products p ON od.Product_id = p.product_id
+GROUP BY p.category;
+
+
+
+7. List All Orders That Are Pending (i.e., Orders that haven't been shipped yet)
+SELECT 
+    o.order_id, 
+    c.First_name, 
+    c.Last_name, 
+    o.order_date, 
+    o.total_amount
+FROM Orders o
+JOIN Customers c ON o.customer_id = c.Customer_id
+WHERE o.order_status = 'Pending';
+
+
+
+8. Find the Average Order Value (Total Order Amount / Number of Orders)
+SELECT 
+    AVG(total_amount) AS average_order_value
+FROM Orders;

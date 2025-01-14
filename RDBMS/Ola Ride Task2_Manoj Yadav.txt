@@ -1,0 +1,64 @@
+1.Retrieve the names and contact details of all drivers with a rating of 4.5 or higher.
+
+SELECT FirstName, LastName, Phone, City, VehicleType, Rating 
+FROM Drivers
+WHERE Rating >= 4.5;
+
+2. Find the total number of rides completed by each driver.
+SELECT DriverId, COUNT(*) AS TotalCompletedRides
+FROM Rides
+WHERE RideStatus = 'Completed'
+GROUP BY DriverId;
+
+3. List all riders who have never booked a ride.
+SELECT R.FirstName, R.LastName, R.Phone, R.City
+FROM Riders R
+LEFT JOIN Rides Ri ON R.RiderId = Ri.RiderId
+WHERE Ri.RideId IS NULL;
+
+
+4. Calculate the total earnings of each driver from completed rides.
+SELECT D.DriverId, SUM(P.Amount) AS TotalEarnings
+FROM Drivers D
+JOIN Rides R ON D.DriverId = R.DriverId
+JOIN Payments P ON R.RideId = P.RideId
+WHERE R.RideStatus = 'Completed'
+GROUP BY D.DriverId;
+
+5. Retrieve the most recent ride for each rider.
+SELECT R.RiderId, R.FirstName, R.LastName, Ri.RideDate
+FROM Riders R
+JOIN Rides Ri ON R.RiderId = Ri.RiderId
+WHERE Ri.RideDate = (
+    SELECT MAX(Ri2.RideDate)
+    FROM Rides Ri2
+    WHERE Ri2.RiderId = Ri.RiderId
+);
+
+6. Count the number of rides taken in each city.
+SELECT City, COUNT(*) AS RideCount
+FROM Riders R
+JOIN Rides Ri ON R.RiderId = Ri.RiderId
+GROUP BY City;
+
+7. List all rides where the distance was greater than 20 km.
+SELECT RideId, RiderId, DriverId, Distance, Fare, RideStatus
+FROM Rides
+WHERE Distance > 20;
+
+8. Identify the most preferred payment method.
+SELECT PaymentMethod, COUNT(*) AS UsageCount
+FROM Payments
+GROUP BY PaymentMethod
+ORDER BY UsageCount DESC
+LIMIT 1;
+
+9. Find the top 3 highest-earning drivers.
+SELECT D.DriverId, SUM(P.Amount) AS TotalEarnings
+FROM Drivers D
+JOIN Rides R ON D.DriverId = R.DriverId
+JOIN Payments P ON R.RideId = P.RideId
+WHERE R.RideStatus = 'Completed'
+GROUP BY D.DriverId
+ORDER BY TotalEarnings DESC
+LIMIT 3;

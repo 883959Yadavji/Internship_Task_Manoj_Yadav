@@ -1,0 +1,82 @@
+1. Find the Total Number of Students in Each Department
+
+SELECT d.department_name, COUNT(s.student_id) AS total_students
+FROM Department d
+LEFT JOIN Student s ON d.department_id = s.department_id
+GROUP BY d.department_name;
+
+2. List All Courses Taught by a Specific Professor
+
+SELECT 
+    c.course_name AS Course
+FROM 
+    Courses c
+JOIN 
+    Professors p
+ON 
+    c.professor_id = p.professor_id
+   
+WHERE 
+    p.first_name = 'Rajesh' AND p.last_name = 'Verma';
+
+3. Find the Average Grade of Students in Each Course
+SELECT c.course_name, AVG(CASE WHEN e.grade = 'A' THEN 4.0 WHEN e.grade = 'B+' THEN 3.5 WHEN e.grade = 'B' THEN 3.0 -- Add more mappings as needed ELSE 0 END) AS average_grade FROM Enrollment e INNER JOIN Courses c ON e.course_id = c.course_id GROUP BY c.course_name;
+
+4. list all studetns who have not enrolled in any course .
+select s.first_name , s.last_name
+from student as s
+ left join enrollment e
+on s.student_id = e.student_id
+where e.enrollment_id is null;
+
+
+5. find the number of course offered by each department.
+SELECT d.department_name, COUNT(c.course_id) AS total_courses
+FROM Department d
+LEFT JOIN Courses c ON d.department_id = c.department_id
+GROUP BY d.department_name;
+
+
+6. list all students who have taken a specific course (e.g. 'Database System').
+select s.first_name , s.last_name 
+from student s
+join enrollment e on s.student_id=e.student_id
+join courses c on e.course_id = c.course_id
+where c.course_name = "Introduction to HR";
+
+
+7. fiind the mosst popular course based on enrollment numbers.
+
+
+select course_name , count(e.enrollment_id) as enrollment_count
+from courses c
+join enrollment e on c.course_id = e.course_id
+group by course_name
+order by enrollment_count desc
+limit 1;
+
+8. find the average number of credits per student in a department.
+
+select d.department_name, avg(c.credits) as avg_count
+from department d
+join student s on d.department_id = s.department_id
+join enrollment e on s.student_id = e.student_id
+join courses  c on e.course_id = c.course_id
+group by department_name;
+
+
+9. list all professors who teach in more then one department.
+
+
+select p.first_name , p.last_name from professors p
+join courses c on p.professor_id = c.professor_id
+group by p.first_name, p.last_name
+having count(distinct c.department_id) > 1;
+
+
+10. get the highest and lowest grade in a specific course (e.g. 'operating system').
+
+select max(e.grade) as heighest_grades, min(e.grade) as lowest_grades
+from enrollment e
+join courses c on c.course_id = e.course_id 
+where c.course_name = 'R&D Basics';
