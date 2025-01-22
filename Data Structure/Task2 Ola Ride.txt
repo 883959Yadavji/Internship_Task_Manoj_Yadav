@@ -1,0 +1,39 @@
+//Ola Database Task2
+create table Drivers(
+    DriverId int primary key,
+    FirstName varchar(100),
+    LastName varchar(100),
+    Phone int,
+    City varchar(40),
+    VehicleType ENUM('Sedan','HatchBack','SUV'),
+    Rating decimal(1,1)
+    );
+create table Riders(
+    RiderId int primary key,
+    FirstName varchar(100),
+    LastName varchar(50),
+    Phone int,
+    City varchar(30),
+    JoinDate datetime
+    );
+create table Rides(
+    RideId int primary Key,
+    RiderId int ,
+    DriverId int,
+    RideDate datetime,
+    PickupLocation varchar(50),
+    DropLocation varchar(50),
+    Distance decimal(2,1),
+    Fare decimal(3,2),
+    RideStatus enum('Completed','Cancelled','Ongoing'),
+    FOREIGN key (RiderId) REFERENCES Riders (RiderId),
+    FOREIGN key (DriverId) REFERENCES Drivers(DriverId)
+    );
+create table Payments(
+    PaymentId int primary key,
+    RideId int ,
+    PaymentMethod enum('Card','Cash','Wallet'),
+    Amount decimal(3,3),
+    PaymentDate datetime,
+    FOREIGN key(RideId) REFERENCES Rides(RideId)
+    ); 

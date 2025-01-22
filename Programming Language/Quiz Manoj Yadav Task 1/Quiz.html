@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Quiz.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Quiz</title>
+    <style>
+        .question, .result, .startQuiz, .rulesPage {
+            display: none;
+        }
+
+        .startQuiz {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <!-- Start Quiz Page -->
+        <div class="inner startQuiz" id="startQuizPage">
+            <h2>Welcome to the Quiz!</h2>
+            <p>Click below to start the quiz.</p>
+            <a href="javascript:void(0);" onclick="startRulesPage()">
+                <button class="btn btn-primary">Start Quiz</button>
+            </a>
+        </div>
+
+        <!-- Rules Page -->
+        <div class="inner rulesPage" id="rulesPage">
+            <h3>&nbsp;&nbsp;&nbsp;<b>Some Rules of This Quiz</b></h3>
+            <hr>
+            <p>
+                1. You will have only <span>15</span> seconds per Each Question.
+                <br><br>
+                2. Once you select your answer, it can't be undone.
+                <br><br>
+                3. You can't select any answer once your time goes off.
+                <br><br>
+                4. You can't exit from the Quiz once you started.
+                <br><br>
+                5. You'll get points based on your correct answers.
+            </p>
+            <hr>
+            <a href="javascript:void(0);" onclick="startQuiz()">
+                <button class="btn btn-primary">Continue to Quiz</button>
+            </a>
+        </div>
+
+        <!-- Quiz Questions -->
+        <div class="inner question" id="question1">
+            Time left: <span><a href="">10</a></span>
+            <hr>
+            <p class="Question">1. What does HTML stand for?</p>
+            <input type="radio" name="q1" value="a">&nbsp;&nbsp;a. Hyper Text Max Lang<br>
+            <input type="radio" name="q1" value="b">&nbsp;&nbsp;b. Hyper Text Markup Language<br>
+            <input type="radio" name="q1" value="c">&nbsp;&nbsp;c. Hi Text Mesing Lotus<br>
+            <input type="radio" name="q1" value="d">&nbsp;&nbsp;d. How To Mess Leg<br>
+            <button class="btn Q" onclick="nextQuestion(1)">Next Question</button>
+        </div>
+
+        <div class="inner question" id="question2">
+            Time left: <span><a href="">10</a></span>
+            <hr>
+            <p class="Question">2. How many ways to add CSS?</p>
+            <input type="radio" name="q2" value="a">&nbsp;&nbsp;a. Only <br>
+            <input type="radio" name="q2" value="b">&nbsp;&nbsp;b. Inline, External, Internal<br>
+            <input type="radio" name="q2" value="c">&nbsp;&nbsp;c. Inline<br>
+            <input type="radio" name="q2" value="d">&nbsp;&nbsp;d. External<br>
+            <button class="btn Q" onclick="nextQuestion(2)">Next Question</button>
+        </div>
+
+        <div class="inner question" id="question3">
+            Time left: <span><a href="">10</a></span>
+            <hr>
+            <p class="Question">3. Which tag is used to define a hyperlink in HTML?</p>
+            <input type="radio" name="q3" value="a">&nbsp;&nbsp;a. &lt;link&gt;<br>
+            <input type="radio" name="q3" value="b">&nbsp;&nbsp;b. &lt;a&gt;<br>
+            <input type="radio" name="q3" value="c">&nbsp;&nbsp;c. &lt;href&gt;<br>
+            <input type="radio" name="q3" value="d">&nbsp;&nbsp;d. &lt;anchor&gt;<br>
+            <button class="btn Q" onclick="nextQuestion(3)">Next Question</button>
+        </div>
+
+        <div class="inner question" id="question4">
+            Time left: <span><a href="">10</a></span>
+            <hr>
+            <p class="Question">4. What is the correct HTML for inserting an image?</p>
+            <input type="radio" name="q4" value="a">&nbsp;&nbsp;a. &lt;img src="image.jpg"&gt;<br>
+            <input type="radio" name="q4" value="b">&nbsp;&nbsp;b. &lt;image src="image.jpg"&gt;<br>
+            <input type="radio" name="q4" value="c">&nbsp;&nbsp;c. &lt;img href="image.jpg"&gt;<br>
+            <input type="radio" name="q4" value="d">&nbsp;&nbsp;d. &lt;image href="image.jpg"&gt;<br>
+            <button class="btn Q" onclick="nextQuestion(4)">Next Question</button>
+        </div>
+
+        <div class="inner question" id="question5">
+            Time left: <span><a href="">10</a></span>
+            <hr>
+            <p class="Question">5. What is the correct HTML element for the largest heading?</p>
+            <input type="radio" name="q5" value="a">&nbsp;&nbsp;a. &lt;head&gt;<br>
+            <input type="radio" name="q5" value="b">&nbsp;&nbsp;b. &lt;h1&gt;<br>
+            <input type="radio" name="q5" value="c">&nbsp;&nbsp;c. &lt;h6&gt;<br>
+            <input type="radio" name="q5" value="d">&nbsp;&nbsp;d. &lt;heading&gt;<br>
+            <button class="btn btn-primary" onclick="submitAnswer(5)">Submit Answer</button>
+        </div>
+
+        <!-- Result Page -->
+        <div class="inner result" id="result">
+            <h2>Quiz Result</h2>
+            <p id="resultMessage"></p>
+            <button class="btn btn-primary" onclick="finishQuiz()">Finish Quiz</button>
+            <button class="btn btn-primary" onclick="restartQuiz()">Restart Quiz</button>
+        </div>
+    </div>
+
+    <script src="Quiz.js"></script>
+</body>
+</html>

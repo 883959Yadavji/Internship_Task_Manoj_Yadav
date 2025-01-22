@@ -1,0 +1,88 @@
+
+h2 {
+    text-align: center;
+}
+.button{
+    width: 100px;
+    height: 45px;
+    border-radius: 9px;
+    margin-bottom: 30px;
+    background-color: rgba(0, 76, 255, 0.984);
+}
+.button:hover{
+    box-shadow: 1px 2px 10px;
+}
+
+input {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+#article{
+    padding-bottom: 30px;
+}
+
+#article:hover {
+    box-shadow: 1px 2px 10px;
+
+}
+#image:hover {
+
+    box-shadow: 1px 2px 10px;
+
+}
+#title:hover {
+    box-shadow: 1px 2px 10px;
+
+}
+
+.input, .article, .images-url {
+    margin-bottom: 10px;
+ 
+
+}
+
+
+.userarticle-card img {
+    
+    width: 300px;
+    height: 200px;
+}
+
+
+#userarticle {
+    
+    height: auto;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+}
+
+
+.userarticle-card {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    box-shadow: 1px 2px 10px;
+    padding: 15px;
+    width: 400px; 
+}
+
+.userarticle-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+.userarticle-card h3, .userarticle-card p {
+    margin: 10px;
+}
+.container{
+    width: 100%;
+	border: 1px solid rgb(0, 0, 0);
+    box-shadow: 5px 5px 10px;
+}

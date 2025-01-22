@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="To-Do.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Todo List</h2><br>
+        <div id="task-input">
+            <input type="text" placeholder="Enter your task" id="input"> 
+        </div>
+        <div id="btan">
+            <button id="addtask" class="btn btn-primary" onclick="add()">Add Task</button>
+            <button id="clearalldata" class="btn btn-primary" onclick="clearalldata()">Clear All</button>
+        </div>
+        <div id="list">
+            <ul id="tasklist"></ul>
+        </div>
+    </div> 
+    <script src="To-Do.js"></script>
+</body>
+</html>

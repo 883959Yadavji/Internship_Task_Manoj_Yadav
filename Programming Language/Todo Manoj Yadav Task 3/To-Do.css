@@ -1,0 +1,139 @@
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f0f8ff; 
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3b3b3b;
+    font-size: 24px;
+}
+
+#input {
+    width: calc(100% - 80px);
+    padding: 10px;
+    margin-left: 40px;
+    margin-top: 20px;
+    border: 2px solid #61dafb;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+#input:focus {
+    border-color: #0288d1;
+    outline: none;
+}
+
+#addtask {
+    width: 100px;
+    height: 35px;
+    color: white;
+    border: none;
+    background-color: #00796b;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+#addtask:hover {
+    background-color: #004d40;
+}
+
+#clearalldata {
+    width: 100px;
+    height: 35px;
+    color: white;
+    border: none;
+    background-color: #d32f2f;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+#clearalldata:hover {
+    background-color: #b71c1c;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 12px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+li:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+button {
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button.delete {
+    background-color: #d32f2f;
+    color: white;
+}
+
+button.delete:hover {
+    background-color: #b71c1c;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+button.tick {
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.tick:active {
+    transform: scale(0.95);
+}
+
+button.tick.unchecked {
+    background-color: #00796b;
+}
+
+button.tick.checked {
+    background-color: #4caf50;
+}

@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: aquamarine;
+}
+.startQuiz{
+width: 100px;
+height: 350px;
+margin-top: 350px;
+margin-left: 700px;
+}
+.btn{
+    width: 150px;
+    height: 50px;
+    padding: 20px;
+    border-radius: 4px;
+    
+}
+.btn:hover{
+    border: 1px solid black;
+    box-shadow: 1px 3px 10px ;
+}
+
+.inner{
+    margin-top: 200px;
+    margin-left: 550px;
+    width:max-content ;
+    height: max-content;
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 1px 3px 10px ;
+}
+.inner p,a,span{
+    background-color: white;
+    text-decoration: none;
+}
+.btn{
+margin-left: 30px;
+
+}
+.btnExit{
+margin-left: 140px;
+background-color: rgb(0, 179, 255);
+color: black;
+
+}
+.btnCont{
+
+    background-color: rgba(64, 128, 0, 0.584);
+    color: black;
+    
+    }
+.Question{
+    font-size: 25px;
+    font-weight: bold;
+}
+.Q{
+    margin-left: 340px;
+background-color: rgb(0, 179, 255);
+color: black;
+}
